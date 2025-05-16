@@ -73,3 +73,12 @@ fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Doub
 fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
    return "El alumno $nombre $apellido tiene una nota de $nota y está ${if (esAprobado(nota)) "aprobado" else "desaprobado"}."
 }
+// Etapa 3
+fun calcularPromedioCurso(notas: List<Double>): Double {
+return if (notas.isNotEmpty()) notas.sum() / notas.size else 0.0
+}
+
+
+fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
+   return nombres.zip(notas).filter { it.second >= 7.0 }.map { it.first }
+}
