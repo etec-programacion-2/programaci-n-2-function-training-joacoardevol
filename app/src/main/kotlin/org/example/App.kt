@@ -52,12 +52,24 @@ fun main() {
 
 // TODO: Implementar las siguientes funciones:
 
+
 // Etapa 1
 fun calcularPromedio(nota1: Double, nota2: Double): Double {
-    return (nota1 + nota2) / 2
+   return (nota1 + nota2) / 2
 }
+
 
 fun esAprobado(nota: Double): Boolean {
-    return nota >= 7.0
+   return nota >= 7.0
 }
 
+
+// Etapa 2
+fun calcularPromedioTresNotas(nota1: Double, nota2: Double, nota3: Double): Double {
+   return (nota1 + nota2 + nota3) / 3
+}
+
+
+fun obtenerEstadoAlumno(nombre: String, apellido: String, nota: Double): String {
+   return "El alumno $nombre $apellido tiene una nota de $nota y está ${if (esAprobado(nota)) "aprobado" else "desaprobado"}."
+}
