@@ -82,3 +82,34 @@ return if (notas.isNotEmpty()) notas.sum() / notas.size else 0.0
 fun obtenerAlumnosAprobados(nombres: List<String>, notas: List<Double>): List<String> {
    return nombres.zip(notas).filter { it.second >= 7.0 }.map { it.first }
 }
+// Etapa 4
+fun generarBoletin(nombre: String, materias: List<String>, notas: List<Double>): String {
+   val boletin = StringBuilder()
+   boletin.append("Boletín de Calificaciones\n")
+   boletin.append("Alumno: $nombre\n")
+   boletin.append("Materias y Notas:\n")
+   for ((materia, nota) in materias.zip(notas)) {
+       boletin.append("- $materia: $nota\n")
+   }
+   val promedio = calcularPromedioCurso(notas)
+   boletin.append("Promedio General: $promedio\n")
+   boletin.append("Estado: ${if (esAprobado(promedio)) "Aprobado" else "Desaprobado"}")
+   return boletin.toString()
+}
+
+
+fun obtenerNotaMasAlta(notas: List<Double>): Double {
+   return notas.maxOrNull() ?: 0.0
+}
+
+
+fun obtenerNotaMasBaja(notas: List<Double>): Double {
+   // Implementar aquí
+   return notas.minOrNull() ?: 0.0
+}
+
+
+fun contarAprobados(notas: List<Double>): Int {
+   // Implementar aquí
+   return notas.count { it >= 7.0 }
+}
